@@ -1,7 +1,7 @@
 {
-  "name": "react-webpack-babel",
+  "name": "crypotgrid",
   "version": "0.0.3",
-  "description": "React Webpack Babel Starter Kit",
+  "description": "See trends in crypto currencies",
   "main": "''",
   "scripts": {
     "build": "webpack --config webpack.production.config.js --progress --profile --colors",
@@ -11,11 +11,10 @@
   },
   "repository": {
     "type": "git",
-    "url": "https://github.com/alicoding/react-webpack-babel"
+    "url": "https://github.com/Sm00g15/cryptogrid.git"
   },
-  "author": "Ali Al Dallal",
+  "author": "Sm00g15",
   "license": "MIT",
-  "homepage": "https://github.com/alicoding/react-webpack-babel#readme",
   "dependencies": {
     "node-sass": "^4.3.0",
     "react": "15.4.2",
