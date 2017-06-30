@@ -1,6 +1,7 @@
 import React from 'react';
 import '../styles/index.scss';
 
+// dumb components don't need the Class syntax so can be just a function like this.
 export default function App() {
   return (
     <div>
