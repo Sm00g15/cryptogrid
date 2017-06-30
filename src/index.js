@@ -1,15 +1,15 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import App from './app';
+import CoinCapAPI from './containers/CoinCapAPI';
 
-render(<AppContainer><App /></AppContainer>, document.querySelector('#app'));
+render(<AppContainer><CoinCapAPI /></AppContainer>, document.querySelector('#app'));
 
 if (module && module.hot) {
   module.hot.accept('./app.js', () => {
     render(
       <AppContainer>
-        <App />
+        <CoinCapAPI />
       </AppContainer>,
       document.querySelector('#app'),
     );

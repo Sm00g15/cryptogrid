@@ -1,4 +1,4 @@
 {
   "presets": ["env", "airbnb"],
-  "plugins": ["babel-plugin-syntax-trailing-function-commas"]
+  "plugins": ["babel-plugin-syntax-trailing-function-commas", "react-hot-loader/babel"]
 }
