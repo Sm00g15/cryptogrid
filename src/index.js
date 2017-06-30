@@ -1,18 +1,17 @@
 import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
-import App from './app.jsx';
+import App from './app.js';
 
-render( <AppContainer><App/></AppContainer>, document.querySelector("#app"));
+render(<AppContainer><App /></AppContainer>, document.querySelector('#app'));
 
 if (module && module.hot) {
-  module.hot.accept('./app.jsx', () => {
-    const App = require('./app.jsx').default;
+  module.hot.accept('./app.js', () => {
     render(
       <AppContainer>
-        <App/>
+        <App />
       </AppContainer>,
-      document.querySelector("#app")
+      document.querySelector('#app'),
     );
   });
 }
