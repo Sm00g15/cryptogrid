@@ -15,13 +15,13 @@ export default class CoinCapAPI extends React.PureComponent {
     .then(response => response.json())
     .then(data => console.log(data));
 
-    // socket.on('trades', (tradesData) => {
-    //   console.log(data);
+    socket.on('trades', (tradesData) => {
+      console.log(data);
     //   // occur very often and very fast
     //   // tradesData contains info on a trade. You should update the table with this info.
     // });
-    socket.on('global', (data) => {
-      console.log(data);
+    // socket.on('global', (data) => {
+    //   console.log(data);
       // occur more slowly
       // data contains the global message data. Not entirely sure what it's used for.
     });
