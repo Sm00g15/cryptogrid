@@ -2,6 +2,7 @@ import React from 'react';
 import { render } from 'react-dom';
 import { AppContainer } from 'react-hot-loader';
 import CoinCapAPI from './containers/CoinCapAPI';
+import SearchBar from './components/SearchBar/search_bar.js'
 
 render(<AppContainer><CoinCapAPI /></AppContainer>, document.querySelector('#app'));
 
