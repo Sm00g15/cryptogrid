@@ -9,6 +9,7 @@ if (module && module.hot) {
   module.hot.accept('./app.js', () => {
     render(
       <AppContainer>
+      	<SearchBar />
         <CoinCapAPI />
       </AppContainer>,
       document.querySelector('#app'),
