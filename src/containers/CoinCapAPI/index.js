@@ -7,6 +7,7 @@ const apiURL = 'http://socket.coincap.io';
 const socket = io(apiURL);
 
 export default class CoinCapAPI extends React.PureComponent {
+
   constructor() {
     super();
     this.state = {};
