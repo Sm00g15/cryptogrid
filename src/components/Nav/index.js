@@ -1,16 +1,22 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { withRouter } from 'react-router';
 import SearchBar from '../SearchBar';
 
-export default function Nav({ handleSearchTermChange }) {
+function Nav({ history }) {
   return (
-    <nav className="search-bar">
+    <div className="search-bar">
       <span className="title">Crypto Grid</span>
-      <SearchBar onSearchTermChange={handleSearchTermChange} />
-    </nav>
+      <SearchBar onSearchTermChange={value => history.push({ search: `?search=${value}` })} />
+    </div>
   );
 }
 
 Nav.propTypes = {
-  handleSearchTermChange: PropTypes.func.isRequired,
+  history: PropTypes.shape({
+    push: PropTypes.func.isRequired,
+  }).isRequired,
 };
+
+
+export default withRouter(Nav);
