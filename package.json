@@ -24,6 +24,7 @@
     "react-dom": "15.4.2",
     "react-hot-loader": "next",
     "react-infinite-scroll-component": "^2.4.0",
+    "react-pretty-numbers": "^1.3.2",
     "react-router": "^4.1.1",
     "react-router-dom": "^4.1.1",
     "sass-loader": "^6.0.2",

@@ -1,9 +1,17 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import { Link } from 'react-router-dom';
+import NumericLabel from 'react-pretty-numbers';
 // import InfiniteScroll from 'react-infinite-scroll-component';
 
 // // dumb components don't need the Class syntax so can be just a function like this.
-export default function CoincapTable({ data }) {
+export default function CoinTable({ data }) {
+  const numParams = {
+    shortFormat: true,
+    shortFormatPrecision: 1,
+    title: true,
+  };
+  const currencyParams = Object.assign({}, numParams, { currency: true });
   return (
     <div>
       <table>
@@ -22,12 +30,17 @@ export default function CoincapTable({ data }) {
           { data && data.map(coin => (
             <tr key={coin.long}>
               <td>{coin.position24}</td>
-              <td><img alt="coin icon" src={`http://www.coincap.io/images/coins/${coin.long}.png`} /> {coin.long}</td>
-              <td>${coin.price}</td>
-              <td>{coin.cap24hrChange}</td>
-              <td>${coin.mktcap}</td>
-              <td>{coin.supply}</td>
-              <td>${coin.volume}</td>
+              <td>
+                <Link to={`/${coin.short}`} >
+                  <img alt="coin icon" src={`http://www.coincap.io/images/coins/${coin.long}.png`} />
+                  {coin.long}
+                </Link>
+              </td>
+              <td><NumericLabel params={currencyParams}>{coin.price}</NumericLabel></td>
+              <td><NumericLabel params={numParams}>{coin.cap24hrChange}</NumericLabel></td>
+              <td><NumericLabel params={currencyParams}>{coin.mktcap}</NumericLabel></td>
+              <td><NumericLabel params={numParams}>{coin.supply}</NumericLabel></td>
+              <td><NumericLabel params={currencyParams}>{coin.volume}</NumericLabel></td>
             </tr>),
           )}
         </tbody>
@@ -36,7 +49,7 @@ export default function CoincapTable({ data }) {
   );
 }
 
-CoincapTable.propTypes = {
+CoinTable.propTypes = {
   data: PropTypes.arrayOf(PropTypes.shape({
     long: PropTypes.string,
     position24: PropTypes.string,
@@ -48,6 +61,6 @@ CoincapTable.propTypes = {
   })),
 };
 
-CoincapTable.defaultProps = {
+CoinTable.defaultProps = {
   data: [],
 };

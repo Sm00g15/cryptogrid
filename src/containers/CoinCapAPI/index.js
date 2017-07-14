@@ -1,8 +1,16 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+
+import {
+  BrowserRouter as Router,
+  Route,
+} from 'react-router-dom';
 // import io from 'socket.io-client';
+
 import 'whatwg-fetch'; // makes 'fetch' work in all browsers https://developer.mozilla.org/en-US/docs/Web/API/Fetch_API
-import CoincapTable from '../../components/CoincapTable';
+import CoinTable from '../../components/CoinTable';
+import CoinDetails from '../../components/CoinDetails/';
+import Nav from '../../components/Nav';
 
 const apiURL = 'http://socket.coincap.io';
 // const socket = io(apiURL);
@@ -55,7 +63,21 @@ export default class CoinCapAPI extends React.PureComponent {
     return (
       <div>
         { this.state.loaded &&
-          <CoincapTable data={this.state.data} />
+          <Router>
+            <div>
+              <Nav />
+              <Route exact path="/" render={() => <CoinTable data={this.state.data} />} />
+              <Route
+                path="/:coinName"
+                render={props => (
+                  <CoinDetails
+                    {...props}
+                    coin={this.state.data.find(coin => coin.short === props.match.params.coinName)}
+                  />
+                )}
+              />
+            </div>
+          </Router>
         }
       </div>
     );
